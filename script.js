@@ -165,6 +165,10 @@ function change_activity(activity) {
         hack();
         return
     }
+    if (waiting_for_response && activity !== "messages") {
+        activity = "messages";
+        hack();
+    }
 
     console.log("change_activity", activity);
     previous_activity = actual_activity;
