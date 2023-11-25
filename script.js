@@ -6,7 +6,13 @@ var btn_map = document.getElementById("btn_map");
 var btn_shot = document.getElementById("btn_shot");
 var btn_back = document.getElementById("btn_back");
 var btn_home = document.getElementById("btn_home");
-var messages = document.getElementById("btn_home");
+var messages = document.getElementById("messages");
+var notification_icon = document.getElementById("notification_icon");
+var notification_popup = document.getElementById("notification_popup");
+
+var notification_popup_content = document.getElementById("notification_popup_content");
+var checks_icon = document.getElementById("checks_icon");
+var avatar_icon = document.getElementById("avatar_icon");
 
 
 
@@ -16,6 +22,9 @@ btn_map.addEventListener("click", () => { change_activity('map') });
 btn_shot.addEventListener("click", () => { change_activity('messages') });
 btn_back.addEventListener("click", () => { change_activity(previous_activity) });
 btn_home.addEventListener("click", () => { change_activity('home') });
+notification_icon.addEventListener("click", () => { change_activity('messages') });
+notification_popup.addEventListener("click", () => { change_activity('messages') });
+
 
 for (i = 1; i <= 5; i++) {
     var pin = document.getElementById("pin_" + i);
