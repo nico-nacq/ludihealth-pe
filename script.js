@@ -49,7 +49,7 @@ function display_date(glitch) {
     if (glitch) {
         year += 22;
     }
-    clock.innerHTML = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes;
+    clock.innerHTML = String(day).padStart(2, '0') + '/' + String(month).padStart(2, '0') + '/' + year + ' ' + String(hours).padStart(2, '0') + ':' + String(minutes).padStart(2, '0');
 }
 display_date();
 
