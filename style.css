@@ -1,3 +1,9 @@
+@font-face {
+  font-family: jgs;
+  src: url(assets/jgs9.ttf);
+
+}
+
 body {
   background: #000;
   padding: 0px;
@@ -683,12 +689,12 @@ body {
 #btn_start {
   padding: 20px 50px;
   color: #FFF;
-  font-size: 20px;
+  font-size: 27px;
   background: transparent;
   border: 1px solid #FFF;
   border-radius: 5px;
   margin-top: 50%;
-  font-family: Arial;
+  font-family: jgs;
   cursor: pointer;
 }
 
@@ -699,11 +705,12 @@ body {
 
 
 #credit {
+
   padding: 20px 50px;
   color: #FFF;
-  font-size: 30px;
+  font-size: 35px;
   border-radius: 5px;
   margin-top: 50%;
-  font-family: Arial;
+  font-family: jgs;
 
 }
