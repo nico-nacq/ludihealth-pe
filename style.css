@@ -449,6 +449,10 @@ body {
   animation-duration: 2s;
 }
 
+.hack #notification_popup {
+  max-width: 45%;
+}
+
 
 @keyframes hacks2 {
   0% {
@@ -687,14 +691,14 @@ body {
   font-family: Arial;
 }
 
-#credit{
-    padding: 20px 50px;
+#credit {
+  padding: 20px 50px;
   color: #FFF;
   font-size: 30px;
 
 
   border-radius: 5px;
   margin-top: 50%;
-    font-family: Arial;
-    
+  font-family: Arial;
+
 }
