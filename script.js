@@ -60,8 +60,10 @@ intro_glitches_interval = setInterval(() => {
             run_dialog("intro_" + intro_glitches);
             hack();
         } else {
-            if (Math.random() > 0.5) {
-                hack();
+            if (!phone.classList.contains('credits')) {
+                if (Math.random() > 0.5) {
+                    hack();
+                }
             }
         }
 
@@ -128,6 +130,7 @@ successes = 0;
 body.scrollTo(0, 0);
 
 function roll_credits() {
+    phone.classList.add("credits");
     btn_start.remove();
     music.play();
     setTimeout(function () {
@@ -141,6 +144,7 @@ function roll_credits() {
     setTimeout(function () {
         hack();
         phone.classList.remove("main_menu");
+        phone.classList.remove("credits");
     }, 10000);
 
 }
