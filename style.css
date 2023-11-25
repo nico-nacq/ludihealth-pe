@@ -106,7 +106,7 @@ body {
 }
 
 #home>.app:hover {
-  color: #27ffe1;
+  color: #2d9dff;
 }
 
 #home>.app>svg {
@@ -142,7 +142,7 @@ body {
 
 #btn_back:hover,
 #btn_home:hover {
-  color: #27ffe1;
+  color: #2d9dff;
 }
 
 #btn_back {
@@ -268,7 +268,7 @@ body {
 }
 
 #messages>div>.message.choices:hover {
-  color: #27ffe1;
+  background-color: #069;
 }
 
 #messages>div>.checks {
@@ -599,7 +599,7 @@ body {
 }
 
 .pin:hover>div {
-  border-color: #27ffe1;
+  border-color: #2d9dff;
 }
 
 .pin>svg {
@@ -649,7 +649,7 @@ body {
 
   content: '1';
   position: absolute;
-  background-color: #27ffe1;
+  background-color: #2d9dff;
   color: #FFF;
   border-radius: 15px;
   padding: 5px;
@@ -689,14 +689,19 @@ body {
   border-radius: 5px;
   margin-top: 50%;
   font-family: Arial;
+  cursor: pointer;
 }
+
+#btn_start:hover {
+  border-color: #2d9dff;
+  color: #2d9dff;
+}
+
 
 #credit {
   padding: 20px 50px;
   color: #FFF;
   font-size: 30px;
-
-
   border-radius: 5px;
   margin-top: 50%;
   font-family: Arial;
