@@ -16,7 +16,8 @@ body {
   overflow: hidden;
 }
 
-.home #header {
+.home header,
+.messages header {
   background: #000;
 }
 
