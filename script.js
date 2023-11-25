@@ -7,6 +7,8 @@
 
 var phone = document.getElementById("phone");
 var body = document.getElementById("body");
+
+var btn_start = document.getElementById("btn_start");
 var btn_message = document.getElementById("btn_message");
 var btn_camera = document.getElementById("btn_camera");
 var btn_map = document.getElementById("btn_map");
@@ -30,9 +32,16 @@ var intro_glitches = 5;
 
 intro_glitches_interval = setInterval(() => {
     if (intro_glitches > 0) {
-        intro_glitches--;
-        run_dialog("intro_" + intro_glitches);
-        hack();
+        if (!phone.classList.contains('main_menu')) {
+            intro_glitches--;
+            run_dialog("intro_" + intro_glitches);
+            hack();
+        } else {
+            if (Math.random() > 0.5) {
+                hack();
+            }
+        }
+
         return
     }
     setTimeout(() => {
@@ -43,6 +52,8 @@ intro_glitches_interval = setInterval(() => {
     clearInterval(intro_glitches_interval);
 
 }, 3000);
+
+btn_start.addEventListener("click", () => { phone.classList.remove("main_menu"); phone.classList.add("intro"); });
 
 btn_message.addEventListener("click", () => { change_activity('messages') });
 btn_camera.addEventListener("click", () => { change_activity('camera') });

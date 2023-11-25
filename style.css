@@ -650,6 +650,34 @@ body {
 
 }
 
-.intro .notification_visible #btn_message:after {
-  content: '';
+.intro.notification_visible #btn_message:after {
+  display: none;
+}
+
+
+
+#main_menu {
+  display: none;
+}
+
+.main_menu>#body>#main_menu {
+  display: block;
+}
+
+.main_menu>#body>#home {
+  display: none;
+}
+
+#main_menu {
+  text-align: center;
+}
+
+#btn_start {
+  padding: 20px 50px;
+  color: #FFF;
+  font-size: 20px;
+  background: transparent;
+  border: 1px solid #FFF;
+  border-radius: 5px;
+  margin-top: 50%
 }
