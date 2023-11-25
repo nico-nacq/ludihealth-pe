@@ -125,72 +125,108 @@ function hack() {
 }
 
 function run_dialog(dialog_id) {
-
+    if (dialogs["dialog_" + dialog_id]) {
+        var dialog = dialogs["dialog_" + dialog_id];
+        if (dialog.image) {
+            var image = dialog.image;
+        } else {
+            image = false;
+        }
+        if (dialog.choices) {
+            var choices = dialog.choices;
+        } else {
+            choices = false;
+        }
+        if (dialog.dialog_id) {
+            var dialog_id = dialog.dialog_id;
+        } else {
+            dialog_id = false;
+        }
+        _message(dialog.txt, "from", image, choices, dialog_id);
+    }
 }
+var first_choice_made = false;
+function _message(txt, direction, image, choices, dialog_id_after) {
+    if (direction === "from") {
+        delay = 500;
+    } else {
+        delay = 10;
+    }
+    setTimeout(function () {
+        let message = document.createElement("div");
+        message.classList.add(direction);
+        if (direction == "from") {
 
-function _message(txt, direction, image, choices) {
-    let message = document.createElement("div");
-    message.classList.add(direction);
-    if (direction == "from") {
+            if (actual_activity === "messages") {
+                message.classList.add("typing");
+                setTimeout(() => {
+                    message.classList.remove("typing");
+                    body.scrollTo(0, body.scrollHeight);
+                    if (dialog_id_after) run_dialog(dialog_id_after);
+                }, txt.length * 20)
+            }
+            let avatar_ctn = document.createElement("div");
+            avatar_ctn.classList.add("avatar");
+            avatar_ctn.appendChild(avatar_icon.cloneNode(true));
 
-        if (actual_activity === "messages" && direction === "from") {
-            message.classList.add("typing");
-            setTimeout(() => {
-                message.classList.remove("typing");
-                body.scrollTo(0, body.scrollHeight);
-            }, txt.length * 20)
+            message.appendChild(avatar_ctn);
+
+            let dots_ctn = document.createElement("div");
+            dots_ctn.classList.add("dots");
+            let dot = document.createElement("span");
+            dots_ctn.appendChild(dot.cloneNode());
+            dots_ctn.appendChild(dot.cloneNode());
+            dots_ctn.appendChild(dot.cloneNode());
+            message.appendChild(dots_ctn);
         }
-        let avatar_ctn = document.createElement("div");
-        avatar_ctn.classList.add("avatar");
-        avatar_ctn.appendChild(avatar_icon.cloneNode(true));
 
-        message.appendChild(avatar_ctn);
-
-        let dots_ctn = document.createElement("div");
-        dots_ctn.classList.add("dots");
-        let dot = document.createElement("span");
-        dots_ctn.appendChild(dot.cloneNode());
-        dots_ctn.appendChild(dot.cloneNode());
-        dots_ctn.appendChild(dot.cloneNode());
-        message.appendChild(dots_ctn);
-    }
-    let message_ctn = document.createElement("div");
-    message_ctn.classList.add("message");
-    message_ctn.innerHTML = txt;
-    if (image) {
-        let img = document.createElement("img");
-        img.src = image;
-        message_ctn.appendChild(img);
-    }
-    message.appendChild(message_ctn);
-
-
-    if (direction == "to") {
-        let checks_ctn = document.createElement("div");
-        checks_ctn.classList.add("checks");
-        checks_ctn.appendChild(checks_icon.cloneNode(true));
-        message.appendChild(checks_ctn);
-    }
-
-    if (choices && choices.length) {
-        for (i = 0; i < choices.length; i++) {
-            let option = document.createElement("button");
-            option.classList.add("message");
-            option.classList.add("choices");
-            option.innerHTML = choices[i].txt;
-            option._goto = choices[i].goto;
-            option.addEventListener("click", (e) => {
-                run_dialog(e.target._goto);
-            })
-            message.appendChild(option);
+        let message_ctn = document.createElement("div");
+        message_ctn.classList.add("message");
+        message_ctn.innerHTML = txt;
+        if (image) {
+            let img = document.createElement("img");
+            img.src = image;
+            message_ctn.appendChild(img);
         }
-    }
-    if (actual_activity !== "messages" && direction === "from") {
-        _send_notification(txt);
-    }
-    console.log(message);
-    messages.appendChild(message);
-    body.scrollTo(0, body.scrollHeight);
+        message.appendChild(message_ctn);
+
+
+        if (direction == "to") {
+            let checks_ctn = document.createElement("div");
+            checks_ctn.classList.add("checks");
+            checks_ctn.appendChild(checks_icon.cloneNode(true));
+            message.appendChild(checks_ctn);
+        }
+
+        if (choices && choices.length) {
+            for (i = 0; i < choices.length; i++) {
+                let choice = document.createElement("button");
+                choice.classList.add("message");
+                choice.classList.add("choices");
+                choice.innerHTML = choices[i].txt;
+                choice._txt = choices[i].txt;
+                choice._goto = choices[i].goto;
+                choice.addEventListener("click", (e) => {
+                    var choices = document.getElementsByClassName('choices');
+                    while (choices.length > 0) {
+                        choices[0].remove();
+                    }
+                    _message(e.target._txt, "to", false, false, e.target._goto);
+                    first_choice_made = true;
+                })
+                message.appendChild(choice);
+            }
+        }
+        if (actual_activity !== "messages" && direction === "from") {
+            _send_notification(txt);
+        }
+        console.log(message);
+        messages.appendChild(message);
+        body.scrollTo(0, body.scrollHeight);
+        if (!(actual_activity === "messages" && direction === "from")) {
+            if (dialog_id_after) run_dialog(dialog_id_after);
+        }
+    }, delay);
 }
 
 function _send_notification(txt) {
