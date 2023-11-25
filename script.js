@@ -150,6 +150,11 @@ function roll_credits() {
 }
 
 function change_activity(activity) {
+    if (phone.classList.contains('main_menu')) {
+
+        return
+
+    }
     if (intro_glitches > 0) {
         intro_glitches--;
         run_dialog("intro_" + intro_glitches);
@@ -160,6 +165,7 @@ function change_activity(activity) {
         hack();
         return
     }
+
     console.log("change_activity", activity);
     previous_activity = actual_activity;
     phone.classList.remove("home");
