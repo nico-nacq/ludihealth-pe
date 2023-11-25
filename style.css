@@ -434,7 +434,6 @@ body {
 }
 
 #background_1 {
-  background: url(assets/living-room-2732939_1280.jpg);
   width: 300vh;
   height: 200vh;
   background-size: cover;
@@ -615,9 +614,23 @@ body {
 
 }
 
-#pin_1>div {
+#pin_1>div,
+#background_1 {
   background-image: url(assets/living-room-2732939_1280.jpg);
 }
+
+.background {
+  display: none;
+}
+
+.scene_1 #background_1,
+.scene_2 #background_2,
+.scene_3 #background_3,
+.scene_4 #background_4,
+.scene_5 #background_5 {
+  display: block;
+}
+
 
 #reuse {
   display: none;

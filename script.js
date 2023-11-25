@@ -49,7 +49,7 @@ for (i = 1; i <= 5; i++) {
     var pin = document.getElementById("pin_" + i);
     pin._i = i;
     pin.addEventListener("click", (e) => {
-        change_camera(e.target._i)
+        change_scene(e.target.parentNode._i);
         change_activity('camera');
     });
 
@@ -76,7 +76,7 @@ for (i = 0; i < fake_apps.length; i++) {
 }
 
 
-
+actual_scene = 1;
 actual_activity = 'home';
 previous_activity = 'home';
 
@@ -244,5 +244,14 @@ function _hide_notifications() {
 };
 
 function change_scene(scene_id) {
+    actual_scene = scene_id;
+    camera.classList.remove("scene_1");
+    camera.classList.remove("scene_2");
+    camera.classList.remove("scene_3");
+    camera.classList.remove("scene_4");
+    camera.classList.remove("scene_5");
+    camera.classList.add("scene_" + scene_id);
 
 }
+
+
