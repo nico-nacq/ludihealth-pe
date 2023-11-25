@@ -40,5 +40,8 @@ var dialogs = {
     },
     "dialog_42": {
         "txt": "test"
+    },
+    "dialog_50": {
+        "txt": "Oh c'est quoi ce truc sur la table !"
     }
 }
