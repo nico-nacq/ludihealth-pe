@@ -1,9 +1,9 @@
 var dialogs = {
     "dialog_intro_3": {
-        "txt": "Test",
+        "txt": "Allo ? ࡱ ⊕⊖st-qu⊗ ⊘⊙ m⊚rche ⊖ai⊛⊜⊝⊞⊟⊝⊞"
     },
     "dialog_intro_2": {
-        "txt": "Ha ça marche je crois",
+        "txt": "Test. Test. Ha ça marche je crois",
     },
     "dialog_intro_1": {
         "txt": "Allo ???",

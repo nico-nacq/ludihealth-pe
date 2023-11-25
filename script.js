@@ -19,13 +19,17 @@ var messages = document.getElementById("messages");
 var notification_icon = document.getElementById("notification_icon");
 var notification_popup = document.getElementById("notification_popup");
 var cursor = document.getElementById("cursor");
-
+var credit = document.getElementById("credit");
 var notification_popup_content = document.getElementById("notification_popup_content");
 var checks_icon = document.getElementById("checks_icon");
 var avatar_icon = document.getElementById("avatar_icon");
 
 
-var glitch_audio = new Audio('assets/332711__amicasys__glitch.mp3');
+
+
+var music = new Audio('assets/686660__xkeril__the-slow-music-of-our-breakup.mp3');
+music.loop = true;
+
 var notification_audio = new Audio('assets/648960__ienba__handheld-bell.mp3');
 
 var intro_glitches = 5;
@@ -53,7 +57,7 @@ intro_glitches_interval = setInterval(() => {
 
 }, 3000);
 
-btn_start.addEventListener("click", () => { phone.classList.remove("main_menu"); phone.classList.add("intro"); });
+btn_start.addEventListener("click", () => { roll_credits() });
 
 btn_message.addEventListener("click", () => { change_activity('messages') });
 btn_camera.addEventListener("click", () => { change_activity('camera') });
@@ -104,7 +108,23 @@ successes = 0;
 
 body.scrollTo(0, 0);
 
+function roll_credits() {
+    btn_start.remove();
+    music.play();
+    setTimeout(function () {
+        hack();
+        credit.innerHTML = "LudiHealth présente";
+    }, 3000);
+    setTimeout(function () {
+        hack();
+        credit.innerHTML = "FUTURES PERTURBATIONS";
+    }, 6000);
+    setTimeout(function () {
+        hack();
+        phone.classList.remove("main_menu");
+    }, 10000);
 
+}
 
 function change_activity(activity) {
     if (intro_glitches > 0) {

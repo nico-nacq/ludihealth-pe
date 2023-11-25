@@ -679,5 +679,18 @@ body {
   background: transparent;
   border: 1px solid #FFF;
   border-radius: 5px;
-  margin-top: 50%
+  margin-top: 50%;
+  font-family: Arial;
+}
+
+#credit{
+    padding: 20px 50px;
+  color: #FFF;
+  font-size: 30px;
+
+
+  border-radius: 5px;
+  margin-top: 50%;
+    font-family: Arial;
+    
 }
