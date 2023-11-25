@@ -636,3 +636,20 @@ body {
 #reuse {
   display: none;
 }
+
+.notification_visible #btn_message:after {
+
+  content: '1';
+  position: absolute;
+  background-color: #27ffe1;
+  color: #FFF;
+  border-radius: 15px;
+  padding: 5px;
+  margin-top: -50px;
+  margin-left: 15px;
+
+}
+
+.intro .notification_visible #btn_message:after {
+  content: '';
+}

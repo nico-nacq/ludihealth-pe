@@ -37,6 +37,7 @@ intro_glitches_interval = setInterval(() => {
     }
     setTimeout(() => {
         run_dialog("intro");
+        phone.classList.remove("intro");
     }, 2000)
 
     clearInterval(intro_glitches_interval);
@@ -76,7 +77,7 @@ for (i = 0; i < fake_apps.length; i++) {
             hack();
             return
         }
-        run_dialog(e.target.attributes["data-dialog-id"].value);
+        run_dialog(e.target.getAttribute("data-dialog-id"));
 
         hack();
 
