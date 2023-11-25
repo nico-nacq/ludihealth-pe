@@ -67,6 +67,7 @@ function change_activity(activity) {
     if (activity !== "messages") {
         body.scrollTo(0, 0);
     } else {
+        _hide_notifications();
         body.scrollTo(0, body.scrollHeight);
     }
 }
@@ -83,6 +84,83 @@ function hack() {
 function run_dialog(dialog_id) {
 
 }
+
+function _message(txt, direction, image, choices) {
+    let message = document.createElement("div");
+    message.classList.add(direction);
+    if (direction == "from") {
+
+        if (actual_activity === "messages" && direction === "from") {
+            message.classList.add("typing");
+            setTimeout(() => {
+                message.classList.remove("typing");
+            }, txt.length * 20)
+        }
+        let avatar_ctn = document.createElement("div");
+        avatar_ctn.classList.add("avatar");
+        avatar_ctn.appendChild(avatar_icon.cloneNode(true));
+
+        message.appendChild(avatar_ctn);
+
+        let dots_ctn = document.createElement("div");
+        dots_ctn.classList.add("dots");
+        let dot = document.createElement("span");
+        dots_ctn.appendChild(dot.cloneNode());
+        dots_ctn.appendChild(dot.cloneNode());
+        dots_ctn.appendChild(dot.cloneNode());
+        message.appendChild(dots_ctn);
+    }
+    let message_ctn = document.createElement("div");
+    message_ctn.classList.add("message");
+    message_ctn.innerHTML = txt;
+    if (image) {
+        let img = document.createElement("img");
+        img.src = image;
+        message_ctn.appendChild(img);
+    }
+    message.appendChild(message_ctn);
+
+
+    if (direction == "to") {
+        let checks_ctn = document.createElement("div");
+        checks_ctn.classList.add("checks");
+        checks_ctn.appendChild(checks_icon.cloneNode(true));
+        message.appendChild(checks_ctn);
+    }
+
+    if (choices && choices.length) {
+        for (i = 0; i < choices.length; i++) {
+            let option = document.createElement("button");
+            option.classList.add("message");
+            option.classList.add("choices");
+            option.innerHTML = choices[i].txt;
+            option._goto = choices[i].goto;
+            option.addEventListener("click", (e) => {
+                run_dialog(e.target._goto);
+            })
+            message.appendChild(option);
+        }
+    }
+    if (actual_activity !== "messages" && direction === "from") {
+        _send_notification(txt);
+    }
+    console.log(message);
+    messages.appendChild(message);
+}
+
+function _send_notification(txt) {
+    phone.classList.add("notification_visible");
+    phone.classList.add("notification_popup_visible");
+    notification_popup_content.innerText = txt;
+    setTimeout(() => {
+        phone.classList.remove("notification_popup_visible");
+    }, 5000);
+}
+function _hide_notifications() {
+    phone.classList.remove("notification_visible");
+    phone.classList.remove("notification_popup_visible");
+};
+
 function change_scene(scene_id) {
 
 }
