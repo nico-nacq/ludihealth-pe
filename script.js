@@ -1,3 +1,10 @@
+//todo success
+// faire avatars détruits (6 ou 7) dont avec cheveux dans l'oreille
+// les mettre dans le tableau dans une colonne image
+// heure
+// intro 
+
+
 var phone = document.getElementById("phone");
 var body = document.getElementById("body");
 var btn_message = document.getElementById("btn_message");
@@ -81,7 +88,7 @@ actual_scene = 1;
 actual_activity = 'home';
 previous_activity = 'home';
 waiting_for_response = false;
-
+successes = 0;
 
 body.scrollTo(0, 0);
 
@@ -149,7 +156,12 @@ function run_dialog(dialog_id) {
         } else {
             dialog_id = false;
         }
-        _message(dialog.txt, "from", image, choices, dialog_id);
+        if (dialog_id === "success") {
+            successes++;
+            run_dialog("success_" + successes);
+        } else {
+            _message(dialog.txt, "from", image, choices, dialog_id);
+        }
     }
 }
 var first_choice_made = false;
