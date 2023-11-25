@@ -151,9 +151,7 @@ function roll_credits() {
 
 function change_activity(activity) {
     if (phone.classList.contains('main_menu')) {
-
         return
-
     }
     if (intro_glitches > 0) {
         intro_glitches--;
