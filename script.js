@@ -106,7 +106,7 @@ function change_activity(activity) {
         hack();
         return
     }
-    console.log("change_activity", activity)
+    console.log("change_activity", activity);
     previous_activity = actual_activity;
     phone.classList.remove("home");
     phone.classList.remove("messages");
@@ -126,7 +126,7 @@ function change_activity(activity) {
     }
 }
 
-function hack() {
+function hack(activity) {
 
     phone.classList.add("hack");
     glitch_audio.play();
@@ -135,7 +135,10 @@ function hack() {
         if (actual_activity !== "camera") {
             body.scrollTo(0, 0);
         }
-    }, 1000);
+        if (activity) {
+            change_activity(activity);
+        }
+    }, 1000, activity);
 
 }
 
@@ -312,8 +315,8 @@ setInterval(() => {
                 set_location_done(dialog_id)
                 run_dialog(dialog_id);
                 setTimeout(() => {
-                    hack();
-                    change_activity("messages");
+                    hack("messages");
+
                 }, 1000);
 
 
