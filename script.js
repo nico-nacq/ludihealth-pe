@@ -15,6 +15,25 @@ var checks_icon = document.getElementById("checks_icon");
 var avatar_icon = document.getElementById("avatar_icon");
 
 
+var glitch_audio = new Audio('assets/332711__amicasys__glitch.mp3');
+var notification_audio = new Audio('assets/648960__ienba__handheld-bell.mp3');
+
+var intro_glitches = 5;
+
+intro_glitches_interval = setInterval(() => {
+    if (intro_glitches > 0) {
+        intro_glitches--;
+        run_dialog("intro_" + intro_glitches);
+        hack();
+        return
+    }
+    setTimeout(() => {
+        run_dialog("intro");
+    }, 2000)
+
+    clearInterval(intro_glitches_interval);
+
+}, 3000);
 
 btn_message.addEventListener("click", () => { change_activity('messages') });
 btn_camera.addEventListener("click", () => { change_activity('camera') });
@@ -39,8 +58,20 @@ for (i = 1; i <= 5; i++) {
 var fake_apps = document.getElementsByClassName('fake_app');
 for (i = 0; i < fake_apps.length; i++) {
     fake_apps[i].addEventListener("click", (e) => {
-        hack();
+        if (intro_glitches > 0) {
+            intro_glitches--;
+            run_dialog("intro_" + intro_glitches);
+            hack();
+            return
+        }
+        if (!first_choice_made) {
+            hack();
+            return
+        }
         run_dialog(e.target.attributes["data-dialog-id"].value);
+
+        hack();
+
     });
 }
 
@@ -56,6 +87,16 @@ body.scrollTo(0, 0);
 
 
 function change_activity(activity) {
+    if (intro_glitches > 0) {
+        intro_glitches--;
+        run_dialog("intro_" + intro_glitches);
+        hack();
+        return
+    }
+    if (!first_choice_made && activity !== "messages") {
+        hack();
+        return
+    }
     console.log("change_activity", activity)
     previous_activity = actual_activity;
     phone.classList.remove("home");
@@ -75,8 +116,10 @@ function change_activity(activity) {
 function hack() {
 
     phone.classList.add("hack");
+    glitch_audio.play();
     setTimeout(() => {
         phone.classList.remove("hack");
+        body.scrollTo(0, 0);
     }, 1000);
 
 }
@@ -151,6 +194,7 @@ function _message(txt, direction, image, choices) {
 }
 
 function _send_notification(txt) {
+    notification_audio.play();
     phone.classList.add("notification_visible");
     phone.classList.add("notification_popup_visible");
     notification_popup_content.innerText = txt;
