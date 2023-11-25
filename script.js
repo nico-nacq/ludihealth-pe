@@ -25,6 +25,7 @@ var checks_icon = document.getElementById("checks_icon");
 var avatar_icon = document.getElementById("avatar_icon");
 
 
+var message_pop = new Audio('assets/244657__greenvwbeetle__pop-5.mp3');
 
 
 var music = new Audio('assets/686660__xkeril__the-slow-music-of-our-breakup.mp3');
@@ -207,6 +208,7 @@ function _message(txt, direction, image, choices, dialog_id_after) {
         delay = 10;
     }
     setTimeout(function () {
+
         let message = document.createElement("div");
         message.classList.add(direction);
         if (direction == "from") {
@@ -214,6 +216,7 @@ function _message(txt, direction, image, choices, dialog_id_after) {
             if (actual_activity === "messages") {
                 message.classList.add("typing");
                 setTimeout(() => {
+                    message_pop.play();
                     message.classList.remove("typing");
                     body.scrollTo(0, body.scrollHeight);
                     if (dialog_id_after) run_dialog(dialog_id_after);
@@ -232,6 +235,8 @@ function _message(txt, direction, image, choices, dialog_id_after) {
             dots_ctn.appendChild(dot.cloneNode());
             dots_ctn.appendChild(dot.cloneNode());
             message.appendChild(dots_ctn);
+        } else {
+            message_pop.play();
         }
 
         let message_ctn = document.createElement("div");
