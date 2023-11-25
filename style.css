@@ -244,6 +244,7 @@ body {
 
 #messages>div.to>.message {
   border-top-right-radius: 0px;
+  margin-right: 10px;
 }
 
 #messages>div.from>.message {
@@ -272,7 +273,7 @@ body {
 
 #messages>div>.checks {
   position: absolute;
-  right: 10px;
+  right: 16px;
   margin-top: -20px;
   animation-name: checks;
   animation-fill-mode: forwards;
