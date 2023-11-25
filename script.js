@@ -9,6 +9,7 @@ var btn_home = document.getElementById("btn_home");
 var messages = document.getElementById("messages");
 var notification_icon = document.getElementById("notification_icon");
 var notification_popup = document.getElementById("notification_popup");
+var cursor = document.getElementById("cursor");
 
 var notification_popup_content = document.getElementById("notification_popup_content");
 var checks_icon = document.getElementById("checks_icon");
@@ -79,7 +80,7 @@ for (i = 0; i < fake_apps.length; i++) {
 actual_scene = 1;
 actual_activity = 'home';
 previous_activity = 'home';
-
+waiting_for_response = false;
 
 
 body.scrollTo(0, 0);
@@ -106,7 +107,11 @@ function change_activity(activity) {
     phone.classList.add(activity);
     actual_activity = activity;
     if (activity !== "messages") {
-        body.scrollTo(0, 0);
+        if (actual_activity !== "camera") {
+            body.scrollTo(0, 0);
+        } else {
+            body.scrollTo(body.scrollWidth / 2, body.scrollHeight / 2);
+        }
     } else {
         _hide_notifications();
         body.scrollTo(0, body.scrollHeight);
@@ -119,7 +124,9 @@ function hack() {
     glitch_audio.play();
     setTimeout(() => {
         phone.classList.remove("hack");
-        body.scrollTo(0, 0);
+        if (actual_activity !== "camera") {
+            body.scrollTo(0, 0);
+        }
     }, 1000);
 
 }
@@ -199,6 +206,7 @@ function _message(txt, direction, image, choices, dialog_id_after) {
         }
 
         if (choices && choices.length) {
+            waiting_for_response = true;
             for (i = 0; i < choices.length; i++) {
                 let choice = document.createElement("button");
                 choice.classList.add("message");
@@ -207,6 +215,7 @@ function _message(txt, direction, image, choices, dialog_id_after) {
                 choice._txt = choices[i].txt;
                 choice._goto = choices[i].goto;
                 choice.addEventListener("click", (e) => {
+                    waiting_for_response = false;
                     var choices = document.getElementsByClassName('choices');
                     while (choices.length > 0) {
                         choices[0].remove();
@@ -220,9 +229,12 @@ function _message(txt, direction, image, choices, dialog_id_after) {
         if (actual_activity !== "messages" && direction === "from") {
             _send_notification(txt);
         }
-        console.log(message);
+
         messages.appendChild(message);
-        body.scrollTo(0, body.scrollHeight);
+        if (actual_activity === "messages") {
+            body.scrollTo(0, body.scrollHeight);
+        }
+
         if (!(actual_activity === "messages" && direction === "from")) {
             if (dialog_id_after) run_dialog(dialog_id_after);
         }
@@ -255,3 +267,79 @@ function change_scene(scene_id) {
 }
 
 
+
+
+
+// Container and displays
+const container = document.querySelector("body");
+
+stay_on_loc = 0;
+// On mousemove
+container.addEventListener("mousemove", (e) => {
+    if (actual_activity === "camera") {
+        xPercent = (e.pageX / window.innerWidth);
+        yPercent = (e.pageY / window.innerHeight);
+
+        delta_x = (xPercent - 0.5) * 50;
+        delta_y = (yPercent - 0.4) * 50;
+
+        body.scrollTo(body.scrollLeft + delta_x, body.scrollTop + delta_y);
+    }
+});
+setInterval(() => {
+
+    if (actual_activity === "camera" && !waiting_for_response) {
+
+        dialog_id = location_found();
+        if (dialog_id !== false) {
+            stay_on_loc++;
+            console.log(stay_on_loc);
+            if (stay_on_loc > 10) {
+
+                set_location_done(dialog_id)
+                run_dialog(dialog_id);
+                setTimeout(() => {
+                    hack();
+                    change_activity("messages");
+                }, 1000);
+
+
+            }
+        } else {
+            stay_on_loc = 0;
+        }
+    }
+}, 100);
+camera.addEventListener('click', (e) => {
+    console.log((body.scrollLeft + body.getBoundingClientRect().width * 0.5) / body.scrollWidth, (body.scrollTop + body.getBoundingClientRect().height * 0.4) / body.scrollHeight);
+})
+
+function location_found() {
+
+    x = (body.scrollLeft + body.getBoundingClientRect().width * 0.5) / body.scrollWidth;
+    y = (body.scrollTop + body.getBoundingClientRect().height * 0.4) / body.scrollHeight;
+    precision = 10;
+    for (i = 0; i < triggers_locations["location_" + actual_scene].length; i++) {
+        if (triggers_locations["location_" + actual_scene][i].done) {
+            continue;
+        }
+        target_x = triggers_locations["location_" + actual_scene][i].x;
+        target_y = triggers_locations["location_" + actual_scene][i].y;
+
+        if (Math.round(x * precision) == Math.round(target_x * precision)
+            && Math.round(y * precision) == Math.round(target_y * precision)) {
+            cursor.classList.add("active");
+            return triggers_locations["location_" + actual_scene][i].dialog_id;
+        }
+    }
+    cursor.classList.remove("active");
+    return false;
+
+}
+function set_location_done(dialog_id) {
+    for (i = 0; i < triggers_locations["location_" + actual_scene].length; i++) {
+        if (dialog_id === triggers_locations["location_" + actual_scene][i].dialog_id) {
+            triggers_locations["location_" + actual_scene][i].done = true;
+        }
+    }
+}
