@@ -51,7 +51,7 @@ previous_activity = 'home';
 
 
 
-
+body.scrollTo(0, 0);
 
 
 
@@ -94,6 +94,7 @@ function _message(txt, direction, image, choices) {
             message.classList.add("typing");
             setTimeout(() => {
                 message.classList.remove("typing");
+                body.scrollTo(0, body.scrollHeight);
             }, txt.length * 20)
         }
         let avatar_ctn = document.createElement("div");
@@ -146,6 +147,7 @@ function _message(txt, direction, image, choices) {
     }
     console.log(message);
     messages.appendChild(message);
+    body.scrollTo(0, body.scrollHeight);
 }
 
 function _send_notification(txt) {
