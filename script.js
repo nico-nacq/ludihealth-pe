@@ -25,6 +25,10 @@ var checks_icon = document.getElementById("checks_icon");
 var avatar_icon = document.getElementById("avatar_icon");
 
 
+var glitch_audio_1 = new Audio('assets/65428__gumballrimpoche__glitchys_1.mp3');
+var glitch_audio_2 = new Audio('assets/65428__gumballrimpoche__glitchys_2.mp3');
+var glitch_audio_3 = new Audio('assets/65428__gumballrimpoche__glitchys_3.mp3');
+
 var message_pop = new Audio('assets/244657__greenvwbeetle__pop-5.mp3');
 
 
@@ -158,10 +162,23 @@ function change_activity(activity) {
     }
 }
 
+var i_glitch = 1;
 function hack(activity) {
 
     phone.classList.add("hack");
-    glitch_audio.play();
+    if (i_glitch == 1) {
+        glitch_audio_1.play();
+    }
+    if (i_glitch == 2) {
+        glitch_audio_2.play();
+    }
+    if (i_glitch == 3) {
+        glitch_audio_3.play();
+    }
+    i_glitch++;
+    if (i_glitch > 3) {
+        i_glitch = 1;
+    }
     setTimeout(() => {
         phone.classList.remove("hack");
         if (actual_activity !== "camera") {
