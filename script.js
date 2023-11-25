@@ -1,8 +1,6 @@
-//todo success
 // faire avatars détruits (6 ou 7) dont avec cheveux dans l'oreille
 // les mettre dans le tableau dans une colonne image
 // heure
-// intro 
 
 
 var phone = document.getElementById("phone");
@@ -24,6 +22,8 @@ var notification_popup_content = document.getElementById("notification_popup_con
 var checks_icon = document.getElementById("checks_icon");
 var avatar_icon = document.getElementById("avatar_icon");
 
+var clock = document.getElementById("clock");
+
 
 var glitch_audio_1 = new Audio('assets/65428__gumballrimpoche__glitchys_1.mp3');
 var glitch_audio_2 = new Audio('assets/65428__gumballrimpoche__glitchys_2.mp3');
@@ -38,6 +38,20 @@ music.loop = true;
 var notification_audio = new Audio('assets/648960__ienba__handheld-bell.mp3');
 
 var intro_glitches = 5;
+
+function display_date(glitch) {
+    var date = new Date;
+    var minutes = date.getMinutes();
+    var hours = date.getHours();
+    var day = String(date.getDate()).padStart(2, '0');
+    var month = String(date.getMonth() + 1).padStart(2, '0');
+    var year = date.getFullYear();
+    if (glitch) {
+        year += 22;
+    }
+    clock.innerHTML = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes;
+}
+display_date();
 
 intro_glitches_interval = setInterval(() => {
     if (intro_glitches > 0) {
@@ -164,7 +178,7 @@ function change_activity(activity) {
 
 var i_glitch = 1;
 function hack(activity) {
-
+    display_date(true);
     phone.classList.add("hack");
     if (i_glitch == 1) {
         glitch_audio_1.play();
@@ -188,6 +202,10 @@ function hack(activity) {
             change_activity(activity);
         }
     }, 1000, activity);
+    setTimeout(() => {
+        display_date();
+
+    }, 2000);
 
 }
 
@@ -231,6 +249,8 @@ function _message(txt, direction, image, choices, dialog_id_after) {
         if (direction == "from") {
 
             if (actual_activity === "messages") {
+
+                display_date(true);
                 message.classList.add("typing");
                 setTimeout(() => {
                     message_pop.play();
@@ -238,6 +258,9 @@ function _message(txt, direction, image, choices, dialog_id_after) {
                     body.scrollTo(0, body.scrollHeight);
                     if (dialog_id_after) run_dialog(dialog_id_after);
                 }, txt.length * 20)
+                setTimeout(() => {
+                    display_date();
+                }, txt.length * 20 + 1000);
             }
             let avatar_ctn = document.createElement("div");
             avatar_ctn.classList.add("avatar");

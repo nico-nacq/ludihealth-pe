@@ -469,7 +469,11 @@ body {
   }
 }
 
-
+.hack #clock,
+.hack header {
+  font-size: 30px;
+  left: 0% !important;
+}
 
 .hack .glitch {
   width: 100%;
