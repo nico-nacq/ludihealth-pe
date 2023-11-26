@@ -34,7 +34,7 @@ Music: CC-BY @Guillaume COTTEZ
 
 ## Contributors
 
-- Nicolas NACQ (App & Artworks)
+- [Nicolas NACQ](https://nico.nacq.me) (App & Artworks)
 - Geoffroy, Ophélie, Lucie, Iris (dialogs, ideas)
 - Guillaume COTTEZ (Music)
 
