@@ -278,7 +278,7 @@ function run_dialog(dialog_id) {
         } else {
             choices = false;
         }
-        if (dialog.choice_id) {
+        if (dialog.choice_id && dialogs["dialog_" + dialog.choice_id]) {
             choices = dialogs["dialog_" + dialog.choice_id].choices;
         }
 
