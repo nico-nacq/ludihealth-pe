@@ -239,6 +239,7 @@ body {
   vertical-align: top;
   font-family: Arial;
 }
+
 #messages>div.success>.message {
   background: #009966;
 }
@@ -273,12 +274,49 @@ body {
   color: #FFF;
   font-size: 15px;
   cursor: pointer;
+  opacity: 0;
+  animation-name: display_choices;
+  animation-fill-mode: forwards;
+  animation-duration: .5s;
 
+}
+
+#messages>div>.message.choices:nth-of-type(1) {
+  animation-delay: .5s;
+}
+
+#messages>div>.message.choices:nth-of-type(2) {
+  animation-delay: 1s;
+}
+
+#messages>div>.message.choices:nth-of-type(3) {
+  animation-delay: 1.5s;
+}
+
+#messages>div>.message.choices:nth-of-type(4) {
+  animation-delay: 2s;
+}
+
+#messages>div>.message.choices:nth-of-type(5) {
+  animation-delay: 2.5s;
+}
+
+@keyframes display_choices {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 #messages>div>.message.choices:hover {
   background-color: #069;
 }
+
+
+
 
 #messages>div>.checks {
   position: absolute;
