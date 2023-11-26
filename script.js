@@ -1,6 +1,4 @@
-// faire avatars détruits (6 ou 7) dont avec cheveux dans l'oreille
-// les mettre dans le tableau dans une colonne image
-// heure
+
 
 
 var phone = document.getElementById("phone");
