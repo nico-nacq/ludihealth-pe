@@ -240,8 +240,12 @@ function hack(activity) {
         if (actual_activity !== "camera") {
             body.scrollTo(0, 0);
         }
+
         if (activity) {
             change_activity(activity);
+        }
+        if (actual_activity === "messages") {
+            body.scrollTo(0, body.scrollHeight);
         }
         redirecting = false;
     }, 1000, activity);
