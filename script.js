@@ -263,7 +263,9 @@ function run_dialog(dialog_id) {
         fade_out = true;
 
         music_success.play();
-        run_dialog("success_" + successes);
+        setTimeout(() => {
+            run_dialog("success_" + successes);
+        }, 2000);
         return
     }
     if (dialogs["dialog_" + dialog_id]) {
@@ -309,7 +311,10 @@ function _message(txt, direction, image, choices, dialog_id_after) {
             successes++;
             fade_out = true;
             music_success.play();
-            run_dialog("success_" + successes);
+            setTimeout(() => {
+                run_dialog("success_" + successes);
+            }, 2000);
+
         }
         if (direction == "from") {
 
