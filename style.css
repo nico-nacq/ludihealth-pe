@@ -8,9 +8,14 @@ body {
   background: #000;
   padding: 0px;
   margin: 0px;
+  background-image: url(assets/drawings/background.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 
 #phone {
+  background: #000;
   width: calc(100vh*0.55 - 50px);
   max-width: calc(100% - 10px);
   margin: 10px auto;
