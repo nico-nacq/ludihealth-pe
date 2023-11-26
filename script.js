@@ -33,6 +33,18 @@ var message_pop = new Audio('assets/244657__greenvwbeetle__pop-5.mp3');
 var music = new Audio('assets/686660__xkeril__the-slow-music-of-our-breakup.mp3');
 music.loop = true;
 
+var music_2 = new Audio('assets/Guillaume_Cottez_Origanal_Soundtrack/long.mp3');
+music_2.loop = true;
+
+var music_success = new Audio('assets/Guillaume_Cottez_Origanal_Soundtrack/success.mp3');
+
+music_success.addEventListener("ended", function () {
+    music_2.currentTime = 0;
+    music_2.play();
+    music_2.volume = 1;
+    fade_out = false;
+});
+
 var notification_audio = new Audio('assets/648960__ienba__handheld-bell.mp3');
 
 var intro_glitches = 5;
@@ -144,9 +156,22 @@ function roll_credits() {
         hack();
         phone.classList.remove("main_menu");
         phone.classList.remove("credits");
+        phone.classList.add("intro");
     }, 10000);
 
 }
+fade_out = false;
+
+setInterval(() => {
+    if (fade_out) {
+        if (music_2.volume > 0.02) {
+            music_2.volume -= 0.01;
+        } else {
+            music_2.volume = 0;
+        }
+    }
+
+}, 30);
 
 function change_activity(activity) {
     if (phone.classList.contains('main_menu')) {
@@ -167,6 +192,7 @@ function change_activity(activity) {
         hack();
     }
 
+
     previous_activity = actual_activity;
     phone.classList.remove("home");
     phone.classList.remove("messages");
@@ -180,7 +206,13 @@ function change_activity(activity) {
         } else {
             body.scrollTo(body.scrollWidth / 2, body.scrollHeight / 2);
         }
+        fade_out = true;
     } else {
+        music_2.currentTime = 0;
+        music_2.play();
+        fade_out = false;
+        music_2.volume = 1;
+
         _hide_notifications();
         body.scrollTo(0, body.scrollHeight);
     }
@@ -220,6 +252,7 @@ function hack(activity) {
 }
 
 function run_dialog(dialog_id) {
+        music_success.play();
     if (dialogs["dialog_" + dialog_id]) {
         var dialog = dialogs["dialog_" + dialog_id];
         if (dialog.image) {
