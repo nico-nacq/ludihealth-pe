@@ -243,6 +243,7 @@ function hack(activity) {
         if (activity) {
             change_activity(activity);
         }
+        redirecting = false;
     }, 1000, activity);
     setTimeout(() => {
         display_date();
@@ -252,7 +253,15 @@ function hack(activity) {
 }
 
 function run_dialog(dialog_id) {
+    if (dialog_id === "success") {
+        successes++;
+
+        fade_out = true;
+
         music_success.play();
+        run_dialog("success_" + successes);
+        return
+    }
     if (dialogs["dialog_" + dialog_id]) {
         var dialog = dialogs["dialog_" + dialog_id];
         if (dialog.image) {
@@ -265,17 +274,18 @@ function run_dialog(dialog_id) {
         } else {
             choices = false;
         }
+        if (dialog.choice_id) {
+            choices = dialogs["dialog_" + dialog.choice_id].choices;
+        }
+
         if (dialog.dialog_id) {
             var dialog_id = dialog.dialog_id;
         } else {
             dialog_id = false;
         }
-        if (dialog_id === "success") {
-            successes++;
-            run_dialog("success_" + successes);
-        } else {
-            _message(dialog.txt, "from", image, choices, dialog_id);
-        }
+
+        _message(dialog.txt, "from", image, choices, dialog_id);
+
     }
 }
 var first_choice_made = false;
@@ -289,6 +299,9 @@ function _message(txt, direction, image, choices, dialog_id_after) {
 
         let message = document.createElement("div");
         message.classList.add(direction);
+        if (dialog_id_after === "success") {
+            message.classList.add("success");
+        }
         if (direction == "from") {
 
             if (actual_activity === "messages") {
