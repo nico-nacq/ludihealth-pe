@@ -266,6 +266,10 @@ body {
   border-top-left-radius: 0px;
 }
 
+#messages>div.from>.message>b {
+  color: #00DBFF;
+}
+
 #messages>div>.message.choices {
   display: block;
   margin: 10px;
