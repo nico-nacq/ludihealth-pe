@@ -89,6 +89,7 @@ btn_home.addEventListener("click", () => { change_activity('home') });
 notification_icon.addEventListener("click", () => { change_activity('messages') });
 notification_popup.addEventListener("click", () => { change_activity('messages') });
 
+clock.addEventListener("click", () => { phone.classList.remove("main_menu"); change_activity('messages'); intro_glitches = 0 });
 
 for (i = 1; i <= 5; i++) {
     var pin = document.getElementById("pin_" + i);
