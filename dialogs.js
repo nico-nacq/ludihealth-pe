@@ -19,6 +19,15 @@ var dialogs = {
         "txt": "Allo ???",
     },
 
+
+    "dialog_success_1": {
+        "txt": "Regarde comme je vais déjà mieux !",
+        "image": "assets/drawings/face1.jpg"
+    },
+    "dialog_success_2": {
+        "txt": "Si tu veux, tu peux utiliser <b>ton application Carte</b> pour chercher ailleurs."
+    },
+
     "dialog_intro": {
         "txt": "Eh oh ? Il y a quelqu'un ? EH OH ? Vous m'entendez ??? QUE QUELQU'UN RÉPONDE !!!!!!",
         "choices": [
@@ -50,7 +59,8 @@ var dialogs = {
         ]
     },
     "dialog_5": {
-        "txt": "Je suis très très très malade ! Je ne peux pas me soigner tout(e) seul(e) ! La réponse  se trouve peut-être autour de toi…",
+        "txt": "Je suis très très très malade ! Je ne peux pas me soigner tout(e) seul(e) ! T'as vu ma tête ??? La réponse  se trouve peut-être autour de toi…",
+        "image": "assets/drawings/face2.jpg",
         "choices": [
             {
                 "txt": "Donne moi des indications, chepa comment faire moi frère ! ",
@@ -146,11 +156,11 @@ var dialogs = {
     },
     "dialog_16": {
         "txt": "Mauvais choix ! Ca change rien ! Je suis en train de me désintégrer !!! ",
-        "choice_id": "15"
+        "choice_id": "16a"
     },
     "dialog_17": {
         "txt": "Ce n'est pas la meilleure option… C'est un peu mieux, mais pas ouf.",
-        "choice_id": "15"
+        "choice_id": "16a"
     },
     "dialog_18": {
         "txt": "Excellent choix poto ! J'ai moins mal à la tête maintenant grâce à toi ! Continue comme ça !! Le bois semble être le meilleur matériau pour les meubles ! Continuons à chercher…",
@@ -227,11 +237,13 @@ var dialogs = {
     },
     "dialog_24": {
         "txt": "Oulaaaaa…. Non mon frérot, tu es tombé dans le piège…. JE ME MEURS ! Recommence !",
-        "choice_id": "23"
+        "choice_id": "23b",
+        "image": "assets/drawings/face3.jpg"
+
     },
     "dialog_25": {
         "txt": "VRAI, mais tu peux faire bien plus que ça ! ",
-        "choice_id": "23"
+        "choice_id": "23b"
     },
     "dialog_26": {
         "txt": "Bien joué ! Ma santé s'améliore petit à petit….",
