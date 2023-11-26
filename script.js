@@ -409,6 +409,7 @@ function change_scene(scene_id) {
 const container = document.querySelector("body");
 
 stay_on_loc = 0;
+stay_on_loc_id = 0;
 // On mousemove
 container.addEventListener("mousemove", (e) => {
     if (actual_activity === "camera") {
@@ -421,22 +422,32 @@ container.addEventListener("mousemove", (e) => {
         body.scrollTo(body.scrollLeft + delta_x, body.scrollTop + delta_y);
     }
 });
+redirecting = false;
 setInterval(() => {
 
-    if (actual_activity === "camera" && !waiting_for_response) {
+    if (actual_activity === "camera" && !waiting_for_response && !redirecting) {
 
-        dialog_id = location_found();
-        if (dialog_id !== false) {
-            stay_on_loc++;
-            console.log(stay_on_loc);
+        location_obj = location_found();
+        if (location_obj !== false) {
+            if (stay_on_loc_id == location_obj.dialog_id) {
+                stay_on_loc++;
+            } else {
+                stay_on_loc = 0;
+            }
+            stay_on_loc_id = location_obj.dialog_id;
+            console.log(stay_on_loc_id, stay_on_loc);
             if (stay_on_loc > 10) {
+                console.log(location_obj);
+                set_location_done(location_obj.dialog_id)
+                run_dialog(location_obj.dialog_id);
 
-                set_location_done(dialog_id)
-                run_dialog(dialog_id);
-                setTimeout(() => {
-                    hack("messages");
-
-                }, 1000);
+                if (location_obj.fun !== true) {
+                    redirecting = true;
+                    console.log("location_obj.fun", location_obj.fun)
+                    setTimeout(() => {
+                        hack("messages");
+                    }, 1000);
+                }
 
 
             }
@@ -453,7 +464,7 @@ function location_found() {
 
     x = (body.scrollLeft + body.getBoundingClientRect().width * 0.5) / body.scrollWidth;
     y = (body.scrollTop + body.getBoundingClientRect().height * 0.4) / body.scrollHeight;
-    precision = 10;
+    precision = 20;
     for (i = 0; i < triggers_locations["location_" + actual_scene].length; i++) {
         if (triggers_locations["location_" + actual_scene][i].done) {
             continue;
@@ -464,7 +475,7 @@ function location_found() {
         if (Math.round(x * precision) == Math.round(target_x * precision)
             && Math.round(y * precision) == Math.round(target_y * precision)) {
             cursor.classList.add("active");
-            return triggers_locations["location_" + actual_scene][i].dialog_id;
+            return triggers_locations["location_" + actual_scene][i];
         }
     }
     cursor.classList.remove("active");
