@@ -239,6 +239,9 @@ body {
   vertical-align: top;
   font-family: Arial;
 }
+#messages>div.success>.message {
+  background: #009966;
+}
 
 #messages>div>.message>img {
   width: 100%;
