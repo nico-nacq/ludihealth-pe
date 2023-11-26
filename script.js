@@ -322,10 +322,10 @@ function _message(txt, direction, image, choices, dialog_id_after) {
                     message.classList.remove("typing");
                     body.scrollTo(0, body.scrollHeight);
                     if (dialog_id_after) run_dialog(dialog_id_after);
-                }, txt.length * 20)
+                }, txt.length * 10)
                 setTimeout(() => {
                     display_date();
-                }, txt.length * 20 + 1000);
+                }, txt.length * 10 + 1000);
             }
             let avatar_ctn = document.createElement("div");
             avatar_ctn.classList.add("avatar");
