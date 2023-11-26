@@ -486,7 +486,7 @@ body {
   background: #F00;
 }
 
-#background_1 {
+.background {
   width: 300vh;
   height: 200vh;
   background-size: cover;
@@ -678,6 +678,11 @@ body {
 #pin_1>div,
 #background_1 {
   background-image: url(assets/drawings/bedroom.jpg);
+}
+
+#pin_2>div,
+#background_2 {
+  background-image: url(assets/drawings/kitchen.jpg);
 }
 
 .background {
