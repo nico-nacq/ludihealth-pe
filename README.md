@@ -6,7 +6,7 @@ Synopsis: an futur version of the player is sick and hacks player's phone to com
 
 ## Screenshots
 
-![Video](doc/video.jpg)
+![Video](doc/video.gif)
 
 ![Screenshot](doc/capture_1.jpg)
 
