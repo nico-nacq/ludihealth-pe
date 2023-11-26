@@ -33,10 +33,10 @@ var message_pop = new Audio('assets/244657__greenvwbeetle__pop-5.mp3');
 var music = new Audio('assets/686660__xkeril__the-slow-music-of-our-breakup.mp3');
 music.loop = true;
 
-var music_2 = new Audio('assets/Guillaume_Cottez_Origanal_Soundtrack/long.mp3');
+var music_2 = new Audio('assets/Guillaume_Cottez_Original_Soundtrack/long.mp3');
 music_2.loop = true;
 
-var music_success = new Audio('assets/Guillaume_Cottez_Origanal_Soundtrack/success.mp3');
+var music_success = new Audio('assets/Guillaume_Cottez_Original_Soundtrack/success.mp3');
 
 music_success.addEventListener("ended", function () {
     music_2.currentTime = 0;
