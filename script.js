@@ -303,8 +303,13 @@ function _message(txt, direction, image, choices, dialog_id_after) {
 
         let message = document.createElement("div");
         message.classList.add(direction);
-        if (dialog_id_after === "success") {
+        if (dialog_id_after === "success"
+            || (dialogs["dialog_" + dialog_id_after] && dialogs["dialog_" + dialog_id_after].choice_id === "success")) {
             message.classList.add("success");
+            successes++;
+            fade_out = true;
+            music_success.play();
+            run_dialog("success_" + successes);
         }
         if (direction == "from") {
 
