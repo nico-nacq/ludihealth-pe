@@ -168,7 +168,6 @@ function change_activity(activity) {
         hack();
     }
 
-    console.log("change_activity", activity);
     previous_activity = actual_activity;
     phone.classList.remove("home");
     phone.classList.remove("messages");
