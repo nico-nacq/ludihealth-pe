@@ -1,15 +1,31 @@
 var dialogs = {
     "dialog_intro_3": {
-        "txt": "Allo ? ࡱ ⊕⊖st-qu⊗ ⊘⊙ m⊚rche ⊖ai⊛⊜⊝⊞⊟⊝⊞"
+        "txt": "Allo ? ࡱ ⊕⊖st-qu⊗ ⊘⊙ m⊚rche ⊖ai⊛⊜⊝⊞⊟⊝⊞"
     },
     "dialog_intro_2": {
         "txt": "Test. Test. Ha ça marche je crois",
     },
     "dialog_intro_1": {
-        "txt": "Allo ???",
+        "txt": "Allo ???",
     },
+
     "dialog_intro": {
-        "txt": "Y a quelqu'un ? Tu me reçois ?",
+        "txt": "Eh oh ? Il y a quelqu'un ? EH OH ? Vous m'entendez ??? QUE QUELQU'UN RÉPONDE !!!!!!",
+        "choices": [
+            {
+                "txt": "Qu'est-ce que vous me voulez ?  ",
+                "goto": "3"
+            },
+            {
+                "txt": "Oooh ! Qu'est-ce que c'est que ce truc ? ",
+                "goto": "3"
+            },
+            {
+                "txt": "Euuuuuh, t'es qui toi ? ",
+                "goto": "3"
+            }
+        ]
+    },
         "choices": [
             {
                 "txt": "Oui",
