@@ -689,6 +689,11 @@ body {
   background-image: url(assets/drawings/kitchen.jpg);
 }
 
+#pin_3>div,
+#background_3 {
+  background-image: url(assets/drawings/bathroom.jpg);
+}
+
 .background {
   display: none;
 }
