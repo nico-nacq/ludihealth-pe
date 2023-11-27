@@ -66,6 +66,7 @@ In `index.html`
 
  - class `.bi`, icons from https://icons.getbootstrap.com/
 
+Intro font JGS is from [Adel Faure](https://adelfaure.net/tools/jgs/)
 
 ## Contributors
 
