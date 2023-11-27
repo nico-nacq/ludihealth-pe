@@ -4,6 +4,10 @@ A two days project made during the second edition of the LudiHealth game-jam. Th
 
 Synopsis: an futur version of the player is sick and hacks player's phone to communicate with the past and revert bad habits to improve their health.
 
+## TRY IT ! 
+
+DEMO : https://statics.nacq.me/ludihealth-pe/
+
 ## Screenshots
 
 ![Video](doc/video.gif)
