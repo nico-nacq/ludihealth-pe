@@ -107,7 +107,7 @@ btn_camera.addEventListener("click", () => { change_activity('camera') });
 btn_map.addEventListener("click", () => { change_activity('map') });
 btn_shot.addEventListener("click", () => { change_activity('messages') });
 btn_back.addEventListener("click", () => { change_activity(previous_activity) });
-btn_home.addEventListener("click", () => { change_activity('home') });
+btn_home.addEventListener("click", () => { change_activity('home'); btn_home.classList.remove("attention_grabber"); });
 notification_icon.addEventListener("click", () => { change_activity('messages') });
 notification_popup.addEventListener("click", () => { change_activity('messages') });
 
@@ -231,6 +231,16 @@ function change_activity(activity) {
         _hide_notifications();
         body.scrollTo(0, body.scrollHeight);
     }
+    if (activity === "messages") {
+        btn_messages.classList.remove("attention_grabber");
+    }
+    if (activity === "map") {
+        btn_map.classList.remove("attention_grabber");
+    }
+    if (activity === "camera") {
+        btn_camera.classList.remove("attention_grabber");
+    }
+
 }
 
 var i_glitch = 1;
@@ -304,6 +314,13 @@ function run_dialog(dialog_id) {
         } else {
             dialog_id = false;
         }
+        if (dialog.attention_grabber) {
+            for (i = 0; i < dialog.attention_grabber.length; i++) {
+                console.log(dialog.attention_grabber[i]);
+                window[dialog.attention_grabber[i]].classList.add('attention_grabber');
+            }
+        }
+
 
         _message(dialog.txt, "from", image, choices, dialog_id);
 

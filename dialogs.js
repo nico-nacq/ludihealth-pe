@@ -25,7 +25,8 @@ var dialogs = {
         "image": "assets/drawings/face1.jpg"
     },
     "dialog_success_2": {
-        "txt": "Si tu veux, tu peux utiliser <b>ton application Carte</b> pour chercher ailleurs."
+        "txt": "Si tu veux, tu peux utiliser <b>ton application Carte</b> pour chercher ailleurs.",
+        "attention_grabber": ['btn_home', 'btn_map']
     },
 
     "dialog_intro": {
@@ -43,7 +44,8 @@ var dialogs = {
                 "txt": "Euuuuuh, t'es qui toi ? ",
                 "goto": "3"
             }
-        ]
+        ],
+        "attention_grabber": ['btn_messages']
     },
     "dialog_3": {
         "txt": "Je suis ton toi du futur et j'ai besoin de toi !!! Je suis en grand danger, je vais peut être MOURIR !! Aide-moi steuplait",
@@ -74,7 +76,7 @@ var dialogs = {
     },
     "dialog_7": {
         "txt": "J'ai modifié ta caméra. Tu devrais pouvoir détecter des problèmes dans ce qui t'entoure grâce à elle. Va dans <b>la caméra</b> et utilise-là !",
-
+        "attention_grabber": ['btn_home', 'btn_camera']
     },
     "dialog_9": {
         "txt": "Il semble y avoir un soucis… ",
