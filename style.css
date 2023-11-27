@@ -116,7 +116,7 @@ body {
   cursor: pointer;
 }
 
-#home>.app:hover {
+.no-touch #home>.app:hover {
   color: #2d9dff;
 }
 
@@ -151,8 +151,8 @@ body {
   cursor: pointer;
 }
 
-#btn_back:hover,
-#btn_home:hover {
+.no-touch #btn_back:hover,
+.no-touch #btn_home:hover {
   color: #2d9dff;
 }
 
@@ -320,7 +320,7 @@ body {
   }
 }
 
-#messages>div>.message.choices:hover {
+.no-touch #messages>div>.message.choices:hover {
   background-color: #069;
 }
 
@@ -657,7 +657,7 @@ body {
   cursor: pointer;
 }
 
-.pin:hover>div {
+.no-touch .pin:hover>div {
   border-color: #2d9dff;
 }
 
@@ -761,7 +761,7 @@ body {
   cursor: pointer;
 }
 
-#btn_start:hover {
+.no-touch #btn_start:hover {
   border-color: #2d9dff;
   color: #2d9dff;
 }

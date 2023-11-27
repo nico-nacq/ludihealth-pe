@@ -53,7 +53,7 @@ var intro_glitches = 5;
 
 
 is_touch_device = false;
-document.body.addEventListener('touchstart', function () { is_touch_device = true });
+document.body.addEventListener('touchstart', function () { is_touch_device = true; phone.classList.remove("no-touch") });
 
 
 
