@@ -34,6 +34,7 @@ This project can be open in a modern browser without any installation step.
  - better Artwork
  - keyboard shortcuts
  - fake app for informations and/or settings
+ - Browser compat checks
 
 ## Contributing
 
