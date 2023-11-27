@@ -353,7 +353,10 @@ function _message(txt, direction, image, choices, dialog_id_after) {
                 setTimeout(() => {
                     message_pop.play();
                     message.classList.remove("typing");
-                    body.scrollTo(0, body.scrollHeight);
+                    body.scrollTo({
+                        top: body.scrollHeight,
+                        behavior: 'smooth',
+                    });
                     if (dialog_id_after) run_dialog(dialog_id_after);
                 }, txt.length * 10)
                 setTimeout(() => {
