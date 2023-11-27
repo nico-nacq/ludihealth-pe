@@ -32,6 +32,8 @@ This project can be open in a modern browser without any installation step.
  - Visual ending and end credits
  - dialogs for fake applications
  - better Artwork
+ - keyboard shortcuts
+ - fake app for informations and/or settings
 
 ## Contributing
 
