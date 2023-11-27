@@ -57,5 +57,5 @@ In `index.html`
 
 ## Related resources
 - https://www.ludihealth.org/
-- Saxonaute: the project developped during the first edition of this event
+- [Saxonaute](https://gitea.nacq.me/nicolas/ludihealth-efr-poc): the project developped during the first edition of this event
 - https://en.wikipedia.org/wiki/Endocrine_disruptor
