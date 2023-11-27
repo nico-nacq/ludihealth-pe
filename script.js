@@ -52,12 +52,8 @@ var intro_glitches = 5;
 
 
 
-// Thank you https://stackoverflow.com/a/4819886
-function isTouchDevice() {
-    return (('ontouchstart' in window) ||
-        (navigator.maxTouchPoints > 0) ||
-        (navigator.msMaxTouchPoints > 0));
-}
+is_touch_device = false;
+document.body.addEventListener('touchstart', function () { is_touch_device = true });
 
 
 
@@ -470,20 +466,19 @@ const container = document.querySelector("body");
 stay_on_loc = 0;
 stay_on_loc_id = 0;
 
-if (!isTouchDevice) {
-    // On mousemove
-    container.addEventListener("mousemove", (e) => {
-        if (actual_activity === "camera") {
-            xPercent = (e.pageX / window.innerWidth);
-            yPercent = (e.pageY / window.innerHeight);
+// On mousemove
+container.addEventListener("mousemove", (e) => {
+    if (actual_activity === "camera" && !is_touch_device) {
+        xPercent = (e.pageX / window.innerWidth);
+        yPercent = (e.pageY / window.innerHeight);
 
-            delta_x = (xPercent - 0.5) * 50;
-            delta_y = (yPercent - 0.4) * 50;
+        delta_x = (xPercent - 0.5) * 50;
+        delta_y = (yPercent - 0.4) * 50;
 
-            body.scrollTo(body.scrollLeft + delta_x, body.scrollTop + delta_y);
-        }
-    });
-}
+        body.scrollTo(body.scrollLeft + delta_x, body.scrollTop + delta_y);
+    }
+});
+
 redirecting = false;
 setInterval(() => {
 
