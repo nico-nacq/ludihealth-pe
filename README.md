@@ -33,6 +33,7 @@ This project can be open in a modern browser without any installation step.
  - keyboard shortcuts
  - fake app for informations and/or settings
  - Browser compat checks
+ - sub story with the girl friend (choices that can make our future self safe AND happy)
 
 ## Contributing
 
