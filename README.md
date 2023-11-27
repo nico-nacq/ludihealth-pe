@@ -26,7 +26,11 @@ Report an issue or make a pull request. We would appreciate ! If you do somethin
 ## License
 
  - This source code is licensed under the GPLv3 - see the [LICENSE](LICENSE) file for details.
- - 
+
+In `dialogs.json`
+
+ - Dialogs from  Ophélie, Lucie, Iris. Rewiewed by [Nicolas NACQ](https://nico.nacq.me)
+
 In `assets/drawings`
 
  - Artwork: CC-BY @Nicolas NACQ
