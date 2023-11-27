@@ -25,11 +25,24 @@ Report an issue or make a pull request. We would appreciate ! If you do somethin
 
 ## License
 
-This source code is licensed under the GPLv3 - see the [LICENSE](LICENSE) file for details.
+ - This source code is licensed under the GPLv3 - see the [LICENSE](LICENSE) file for details.
+ - 
+In `assets/drawings`
 
-Artwork: CC-BY @Nicolas NACQ
+ - Artwork: CC-BY @Nicolas NACQ
 
-Music: CC-BY @Guillaume COTTEZ 
+In `assets/Guillaume_Cottez_Original_Soundtrack`
+
+ - Music: CC-BY @Guillaume COTTEZ 
+
+In `assets/`
+
+ - CC-0 Audio assets from https://freesound.org/ 
+ - Free usage images from [Pixabay](https://pixabay.com/)
+
+In `index.html` 
+
+ - class `.bi`, icons from https://icons.getbootstrap.com/
 
 
 ## Contributors
