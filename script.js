@@ -186,6 +186,9 @@ setInterval(() => {
 }, 30);
 
 function change_activity(activity) {
+    if (actual_activity === activity) {
+        return
+    }
     if (phone.classList.contains('main_menu')) {
         return
     }
