@@ -24,7 +24,6 @@ This project can be open in a modern browser without any installation step.
 
 ## TODO
 
- - Images optimisations
  - Touch screen optimisations
  - Triggers on scenes 2 to 4
  - Dialogs reviews for scenes 2 to 4
