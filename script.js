@@ -49,6 +49,18 @@ var notification_audio = new Audio('assets/648960__ienba__handheld-bell.mp3');
 
 var intro_glitches = 5;
 
+
+
+
+// Thank you https://stackoverflow.com/a/4819886
+function isTouchDevice() {
+    return (('ontouchstart' in window) ||
+        (navigator.maxTouchPoints > 0) ||
+        (navigator.msMaxTouchPoints > 0));
+}
+
+
+
 function display_date(glitch) {
     var date = new Date;
     var minutes = date.getMinutes();
@@ -437,18 +449,21 @@ const container = document.querySelector("body");
 
 stay_on_loc = 0;
 stay_on_loc_id = 0;
-// On mousemove
-container.addEventListener("mousemove", (e) => {
-    if (actual_activity === "camera") {
-        xPercent = (e.pageX / window.innerWidth);
-        yPercent = (e.pageY / window.innerHeight);
 
-        delta_x = (xPercent - 0.5) * 50;
-        delta_y = (yPercent - 0.4) * 50;
+if (!isTouchDevice) {
+    // On mousemove
+    container.addEventListener("mousemove", (e) => {
+        if (actual_activity === "camera") {
+            xPercent = (e.pageX / window.innerWidth);
+            yPercent = (e.pageY / window.innerHeight);
 
-        body.scrollTo(body.scrollLeft + delta_x, body.scrollTop + delta_y);
-    }
-});
+            delta_x = (xPercent - 0.5) * 50;
+            delta_y = (yPercent - 0.4) * 50;
+
+            body.scrollTo(body.scrollLeft + delta_x, body.scrollTop + delta_y);
+        }
+    });
+}
 redirecting = false;
 setInterval(() => {
 
