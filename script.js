@@ -5,7 +5,7 @@ var phone = document.getElementById("phone");
 var body = document.getElementById("body");
 
 var btn_start = document.getElementById("btn_start");
-var btn_message = document.getElementById("btn_message");
+var btn_messages = document.getElementById("btn_messages");
 var btn_camera = document.getElementById("btn_camera");
 var btn_map = document.getElementById("btn_map");
 var btn_shot = document.getElementById("btn_shot");
@@ -102,7 +102,7 @@ intro_glitches_interval = setInterval(() => {
 
 btn_start.addEventListener("click", () => { roll_credits() });
 
-btn_message.addEventListener("click", () => { change_activity('messages') });
+btn_messages.addEventListener("click", () => { change_activity('messages') });
 btn_camera.addEventListener("click", () => { change_activity('camera') });
 btn_map.addEventListener("click", () => { change_activity('map') });
 btn_shot.addEventListener("click", () => { change_activity('messages') });

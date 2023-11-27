@@ -714,7 +714,7 @@ body {
   display: none;
 }
 
-.notification_visible #btn_message:after {
+.notification_visible #btn_messages:after {
 
   content: '1';
   position: absolute;
@@ -727,7 +727,7 @@ body {
 
 }
 
-.intro.notification_visible #btn_message:after {
+.intro.notification_visible #btn_messages:after {
   display: none;
 }
 
