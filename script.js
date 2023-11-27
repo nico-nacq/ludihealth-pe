@@ -470,17 +470,34 @@ stay_on_loc = 0;
 stay_on_loc_id = 0;
 
 // On mousemove
+
+var mouse_x;
+var mouse_y;
 container.addEventListener("mousemove", (e) => {
-    if (actual_activity === "camera" && !is_touch_device) {
-        xPercent = (e.pageX / window.innerWidth);
-        yPercent = (e.pageY / window.innerHeight);
+    mouse_x = e.pageX;
+    mouse_y = e.pageY;
 
-        delta_x = (xPercent - 0.5) * 50;
-        delta_y = (yPercent - 0.4) * 50;
-
-        body.scrollTo(body.scrollLeft + delta_x, body.scrollTop + delta_y);
-    }
 });
+
+setInterval(() => {
+
+    if (actual_activity === "camera" && !is_touch_device) {
+        xPercent = (mouse_x / window.innerWidth);
+        yPercent = (mouse_y / window.innerHeight);
+
+        delta_x = (xPercent - 0.5) * 200;
+        delta_y = (yPercent - 0.4) * 200;
+
+        body.scrollTo({
+            left: body.scrollLeft + delta_x,
+            top: body.scrollTop + delta_y,
+            behavior: 'smooth',
+        }
+        );
+    }
+
+}, 100);
+
 
 redirecting = false;
 setInterval(() => {
