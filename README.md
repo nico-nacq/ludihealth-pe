@@ -18,6 +18,17 @@ Synopsis: an futur version of the player is sick and hacks player's phone to com
 
 This project can be open in a modern browser without any installation step.
 
+## TODO
+
+ - Images optimisations
+ - Touch screen optimisations
+ - Triggers on scenes 2 to 4
+ - Dialogs reviews for scenes 2 to 4
+ - Dialogs improvements
+ - Visual ending and end credits
+ - dialogs for fake applications
+ - better Artwork
+
 ## Contributing
 
 Report an issue or make a pull request. We would appreciate ! If you do something with this project, feel free to contact us. We may add your project in the related projects section.
