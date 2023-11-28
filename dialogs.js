@@ -26,7 +26,7 @@ var dialogs = {
         "image": "assets/drawings/face1.jpg"
     },
     "dialog_success_2": {
-        "txt": "Si tu veux, tu peux utiliser <b>ton application Carte</b> pour chercher ailleurs. [<b>ATTENTION !</b> Ce jeu n'est pas terminé ! Les autres pièces ne sont pas encore réalisées. Elles ne sont là qu'à titre d'exemple. Merci d'avoir joué à cette version alpha]",
+        "txt": "Si tu veux, tu peux utiliser <b>ton application Carte</b> pour chercher ailleurs. [<b>ATTENTION !</b> Ce jeu n'est pas terminé ! Les autres pièces ne sont pas encore réalisées. Elles ne sont là qu'à titre d'exemple. Merci d'avoir joué à cette version alpha]",
         "attention_grabber": ['btn_home', 'btn_map']
     },
 
