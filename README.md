@@ -47,26 +47,26 @@ Report an issue or make a pull request. We would appreciate ! If you do somethin
 
 In `dialogs.json`
 
- - Dialogs from  Ophélie, Lucie, Iris. Rewiewed by [Nicolas NACQ](https://nico.nacq.me)
+ - Dialogs: CC-BY from  Ophélie, Lucie, Iris from LudiHealth 2023 and[Nicolas NACQ](https://nico.nacq.me)
 
 In `assets/drawings`
 
- - Artwork: CC-BY @Nicolas NACQ
+ - Artwork: CC-BY [Nicolas NACQ](https://nico.nacq.me)
 
 In `assets/Guillaume_Cottez_Original_Soundtrack`
 
- - Music: CC-BY @Guillaume COTTEZ 
+ - Music: CC-BY Guillaume COTTEZ 
 
 In `assets/`
 
  - CC-0 Audio assets from https://freesound.org/ 
- - Free usage images from [Pixabay](https://pixabay.com/)
+ - Free usage images from [Pixabay](https://pixabay.com/). Read their license there.
 
 In `index.html` 
 
- - class `.bi`, icons from https://icons.getbootstrap.com/
+ - class `.bi`, icons from https://icons.getbootstrap.com/. Read their license there.
 
-Intro font JGS is from [Adel Faure](https://adelfaure.net/tools/jgs/)
+Intro font JGS is from [Adel Faure](https://adelfaure.net/tools/jgs/). Read their license there.
 
 ## Contributors
 
