@@ -17,6 +17,7 @@ var dialogs = {
     },
     "dialog_intro_1": {
         "txt": "Allo ???",
+        "attention_grabber": ['btn_messages']
     },
 
 
@@ -44,8 +45,7 @@ var dialogs = {
                 "txt": "Euuuuuh, t'es qui toi ? ",
                 "goto": "3"
             }
-        ],
-        "attention_grabber": ['btn_messages']
+        ]
     },
     "dialog_3": {
         "txt": "Je suis ton toi du futur et j'ai besoin de toi !!! Je suis en grand danger, je vais peut être MOURIR !! Aide-moi steuplait",
