@@ -2,7 +2,7 @@
 
 A two days project made during the second edition of the LudiHealth game-jam. This is a proof of concept for a video game that would encourage teenagers to get informations about endocrine disruptors.
 
-Synopsis: an futur version of the player is sick and hacks player's phone to communicate with the past and revert bad habits to improve their health.
+Synopsis: A futur version of the player is sick and hacks player's phone to communicate with the past and revert bad habits to improve their health.
 
 ## TRY IT ! 
 
